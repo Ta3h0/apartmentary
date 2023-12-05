@@ -19,6 +19,7 @@
 
             var swiper = new Swiper(".mySwiper_main", {
                 loop: true,
+                autoplay: true,
 
                 navigation: {
                     nextEl: ".swiper-button-next",
@@ -27,18 +28,28 @@
             });
 
             var swiper = new Swiper(".mySwiper", {
-                slidesPerView: 3,
-                spaceBetween: 146,
+                slidesPerView: 1,
+                spaceBetween: 0,
                 loop: true,
 
                 navigation: {
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",
                 },
+
+                breakpoints: {
+                    909: {
+                        slidesPerView: 1,
+                        spaceBetween: 0,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 146,
+                    },
+                },
             });
 
             AOS.init();
-
 
         };//js end
 
@@ -53,38 +64,56 @@
 
                 console.log(scrollBar)
 
-                if (scrollBar < cont02PositionTop) {
+                if ($('.cont02').width() >= 1216) {
+                    if (scrollBar < cont02PositionTop) {
 
-                    $('.cont02 .inner').css({
-                        'width': '1055px'
-                    })
-                    $('.cont02 .inner .left').css({
-                        'height': '463px',
-                        'border-radius': '50%'
-                    })
-                    $('.cont02 .inner .left video').hide();
-                } else if (scrollBar > cont02PositionBottom) {
+                        $('.cont02 .inner').css({
+                            'width': '1055px'
+                        })
+                        $('.cont02 .inner .left').css({
+                            'height': '463px',
+                            'border-radius': '50%'
+                        })
+                        $('.cont02 .inner .left video').hide();
+                    } else if (scrollBar > cont02PositionBottom) {
 
-                    $('.cont02 .inner').css({
-                        'width': '1055px'
-                    })
-                    $('.cont02 .inner .left').css({
-                        'height': '463px',
-                        'border-radius': '50%'
-                    })
-                    $('.cont02 .inner .left video').hide();
-                } else {
-                    $('.cont02 .inner').css({
-                        'width': '1280px'
-                    })
-                    $('.cont02 .inner .left').css({
-                        'height': '710px',
-                        'border-radius': '0'
-                    })
-                    $('.cont02 .inner .left video').show();
+                        $('.cont02 .inner').css({
+                            'width': '1055px'
+                        })
+                        $('.cont02 .inner .left').css({
+                            'height': '463px',
+                            'border-radius': '50%'
+                        })
+                        $('.cont02 .inner .left video').hide();
+                    } else {
+                        $('.cont02 .inner').css({
+                            'width': '1280px'
+                        })
+                        $('.cont02 .inner .left').css({
+                            'height': '710px',
+                            'border-radius': '0'
+                        })
+                        $('.cont02 .inner .left video').show();
+                    }
                 }
 
             };
+
+            $('header .inner .menu_open').click(function (){
+
+                $('header .inner .menu_open').toggleClass('on');
+
+                if($('header .inner .menu_open').hasClass('on') == true) {
+                    $('header .inner .mobile_menu').css({
+                        'right' : '0'
+                    })
+                } else {
+                    $('header .inner .mobile_menu').css({
+                        'right' : '-100%'
+                    })
+                }
+
+            })
 
 
         });//jQuery end
@@ -115,12 +144,27 @@
 
                     </a></h1>
 
-                <ul class="gnb">
+                <ul class="pc gnb">
                     <li><a href="#">포트폴리오</a></li>
                     <li><a href="#">서비스 소개</a></li>
                     <li><a href="#">읽을거리</a></li>
                     <li><a href="https://apartmentary.com/inquiry" #>상담 신청 <span>EASY</span></a></li>
-                </ul>
+                </ul><!-- .pc.gnb end -->
+
+                <div class="mobile menu_open">
+                    <span class="top"></span>
+                    <span class="middle"></span>
+                    <span class="bottom"></span>
+                </div>
+
+                <div class="mobile mobile_menu">
+                    <ul class="mobile_gnb">
+                        <li><a href="#">포트폴리오</a></li>
+                        <li><a href="#">서비스 소개</a></li>
+                        <li><a href="#">읽을거리</a></li>
+                        <li><a href="https://apartmentary.com/inquiry" #>상담 신청 </a></li>
+                    </ul><!-- .mobile_gnb end -->
+                </div><!-- .mobile .mobile_menu end -->
             </div><!-- .inner end -->
         </header>
 
@@ -149,6 +193,7 @@
                                     <h1>취향이 느껴지는 아파트</h1>
                                     <p>공간에 온전히 담긴 라이프 스타일</p>
                                 </div><!-- text -->
+
                             </div>
                             <div class="swiper-slide">
                                 <img src="img/4.jpg" alt="4번 인테리어 사진">
@@ -182,14 +227,14 @@
                         <p class="left_line"></p>
                         <p class="right_line"></p>
                     </div>
-                </div><!-- .main_visual_inner end -->
 
-                <div class="scroll_bg">
-                    <div class="scroll_ani">
-                        <span><strong></strong></span>
-                        <p>Scroll ></p>
-                    </div><!-- .scroll_ani end -->
-                </div><!-- .scroll_bg end -->
+                    <div class="mobile_text">
+                        <div class="inner">
+                            <p>나의 인테리어<br>이곳에서 찾으세요</p>
+                            <h4>APARTMENTARY</h4>
+                        </div><!-- .inner end -->
+                    </div><!-- .mobile_text end -->
+                </div><!-- .main_visual_inner end -->
 
             </section><!-- .main_visual end -->
 
@@ -197,8 +242,7 @@
                 <div class="cont01_left" data-aos="fade-right">
                     <div>
                         <h3>과거</h3>
-                        <p>집은 안락한 휴식처 혹은</p>
-                        <p>잠깐 머물다 가는 공간에 가까웠다</p>
+                        <p>집은 안락한 휴식처 혹은<br>잠깐 머물다 가는 공간에 가까웠다</p>
                     </div>
                     <img src="img/수면.png" alt="수면">
                 </div><!-- .cont01_left end -->
@@ -207,9 +251,7 @@
                     <img src="img/복합문화.png" alt="복합생활공간">
                     <div>
                         <h3>하지만</h3>
-                        <p>현대에 들어서면서</p>
-                        <p>'집'은 모든 활동이 가능한 '복합생활공간'으로</p>
-                        <p>의미가 변화하고 있다</p>
+                        <p>현대에 들어서면서<br />'집'은 모든 활동이 가능한 '복합생활공간'으로<br />의미가 변화하고 있다</p>
                     </div>
                 </div><!-- .cont01_right end -->
 
@@ -428,25 +470,24 @@
                     </video>
 
                     <div>
-                        <h4>기분좋은</h4>
-                        <h4>인테리어의 시작과 끝</h4>
-                        <p>첫 상담부터 공사 마무리까지 매뉴얼화된 프로세스와</p>
-                        <p>투명하고 정직한 견적 시스템,</p>
-                        <p>취향을 찾아주는 인테리어 디자인까지</p>
-                        <p>아파트멘터리와 함께한 인테리어라면</p>
-                        <p>설렘만 가득한 경험이 될 거예요.</p>
+                        <h4>기분좋은<br>인테리어의 시작과 끝</h4>
+                        <p>첫 상담부터 공사 마무리까지 매뉴얼화된 프로세스와<br>
+                            투명하고 정직한 견적 시스템,<br>
+                            취향을 찾아주는 인테리어 디자인까지<br>
+                            아파트멘터리와 함께한 인테리어라면<br>
+                            설렘만 가득한 경험이 될 거예요.</p>
                     </div>
                 </div><!-- .second end -->
 
                 <div class="third" data-aos="fade-left">
                     <div>
-                        <h4>데이터 기반의</h4>
-                        <h4>가격정찰제</h4>
-                        <p>인테리어 비용의 애매한 기준,</p>
-                        <p>아파트멘터리가 정의할게요.</p>
-                        <p>동일한 평형이라면 동일한 기준 적용.</p>
-                        <p>견적의 변동 없이 처음 가격 그대로.</p>
-                        <p>투명하고 정직한 견적을 제공합니다.</p>
+                        <h4>데이터 기반의<br>
+                            가격정찰제</h4>
+                        <p>인테리어 비용의 애매한 기준,<br>
+                            아파트멘터리가 정의할게요.<br>
+                            동일한 평형이라면 동일한 기준 적용.<br>
+                            견적의 변동 없이 처음 가격 그대로.<br>
+                            투명하고 정직한 견적을 제공합니다.</p>
                     </div>
 
                     <figure>
