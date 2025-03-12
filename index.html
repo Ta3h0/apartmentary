@@ -68,7 +68,7 @@
                     if (scrollBar < cont02PositionTop) {
 
                         $('.cont02 .inner').css({
-                            'width': '1055px'
+                            'width': '745px'
                         })
                         $('.cont02 .inner .left').css({
                             'height': '463px',
@@ -78,7 +78,7 @@
                     } else if (scrollBar > cont02PositionBottom) {
 
                         $('.cont02 .inner').css({
-                            'width': '1055px'
+                            'width': '745px'
                         })
                         $('.cont02 .inner .left').css({
                             'height': '463px',
@@ -87,7 +87,7 @@
                         $('.cont02 .inner .left video').hide();
                     } else {
                         $('.cont02 .inner').css({
-                            'width': '1280px'
+                            'width': '1000px'
                         })
                         $('.cont02 .inner .left').css({
                             'height': '710px',
@@ -115,6 +115,13 @@
 
             })
 
+            $("header").mouseenter(function(){
+                $("header .pc.depth2").slideDown();
+            })
+            $("header").mouseleave(function(){
+                $("header .pc.depth2").slideUp();
+            })
+
 
         });//jQuery end
 
@@ -126,8 +133,8 @@
     <div id="wrap" style="overflow: hidden;">
         <header>
             <div class="inner">
-                <h1><a href="#">
-                        <svg width="60" height="69" viewBox="0 0 126 145" fill="none"
+                <h1><a href="#" style="display: flex; justify-content: center; align-items: center;">
+                        <svg width="auto" height="45" viewBox="0 0 126 145" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_806_3140)">
                                 <path
@@ -145,11 +152,19 @@
                     </a></h1>
 
                 <ul class="pc gnb">
-                    <li><a href="#">포트폴리오</a></li>
-                    <li><a href="#">서비스 소개</a></li>
-                    <li><a href="#">읽을거리</a></li>
-                    <li><a href="https://apartmentary.com/inquiry" #>상담 신청 <span>EASY</span></a></li>
+                    <li class="depth1"><a href="#">제품</a></li>
+                    <li class="depth1"><a href="#">포트폴리오</a></li>
+                    <li class="depth1"><a href="#">서비스 소개</a></li>
+                    <li class="depth1"><a href="#">읽을거리</a></li>
+                    <li class="depth1"><a href="https://apartmentary.com/inquiry" #>상담 신청 <span>EASY</span></a></li>
+                    <ul class="pc depth2">
+                        <li><a href="#">포세린 / 폴리싱</a></li>
+                        <li><a href="#">강마루</a></li>
+                        <li><a href="#">강화마루</a></li>
+                        <li><a href="#">데코타일</a></li>
+                    </ul>
                 </ul><!-- .pc.gnb end -->
+                
 
                 <div class="mobile menu_open">
                     <span class="top"></span>
@@ -159,10 +174,19 @@
 
                 <div class="mobile mobile_menu">
                     <ul class="mobile_gnb">
-                        <li><a href="#">포트폴리오</a></li>
-                        <li><a href="#">서비스 소개</a></li>
-                        <li><a href="#">읽을거리</a></li>
-                        <li><a href="https://apartmentary.com/inquiry" #>상담 신청 </a></li>
+                        <li class="depth1">
+                            <a href="#">제품</a>
+                            <ul class="depth2">
+                                <li><a href="#">포세린 / 폴리싱</a></li>
+                                <li><a href="#">강마루</a></li>
+                                <li><a href="#">강화마루</a></li>
+                                <li><a href="#">데코타일</a></li>
+                            </ul>
+                        </li>
+                        <li class="depth1"><a href="#">포트폴리오</a></li>
+                        <li class="depth1"><a href="#">서비스 소개</a></li>
+                        <li class="depth1"><a href="#">읽을거리</a></li>
+                        <li class="depth1"><a href="https://apartmentary.com/inquiry" #>상담 신청</a></li>
                     </ul><!-- .mobile_gnb end -->
                 </div><!-- .mobile .mobile_menu end -->
             </div><!-- .inner end -->
@@ -238,22 +262,21 @@
 
             </section><!-- .main_visual end -->
 
-            <section class="cont01">
+            <!-- <section class="cont01">
                 <div class="cont01_left" data-aos="fade-right">
                     <div>
                         <h3>과거</h3>
                         <p>집은 안락한 휴식처 혹은<br>잠깐 머물다 가는 공간에 가까웠다</p>
                     </div>
                     <img src="img/수면.png" alt="수면">
-                </div><!-- .cont01_left end -->
-
+                </div>
                 <div class="cont01_right" data-aos="fade-left">
                     <img src="img/복합문화.png" alt="복합생활공간">
                     <div>
                         <h3>하지만</h3>
                         <p>현대에 들어서면서<br />'집'은 모든 활동이 가능한 '복합생활공간'으로<br />의미가 변화하고 있다</p>
                     </div>
-                </div><!-- .cont01_right end -->
+                </div>
 
                 <div class="cont01_center" data-aos="fade-up">
                     <h3>변화한 만큼</h3>
@@ -261,8 +284,30 @@
                     <p>탄생한 서비스</p>
                     <h3>APARTMENTARY</h3>
 
-                </div><!-- .cont01_center end -->
-            </section><!-- .cont01 end -->
+                </div>
+            </section> -->
+
+            <section class="mini-menu" style="padding: 140px 0; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <h2 style="margin-bottom:30px; font-size: 40px;">어떤 제품을 찾고 계신가요?</h2>
+                <div class="menu-inner" style="margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+                    <div class="menu-item">
+                        <img src="/img/tile.jpg" alt="No Image">
+                        <p class="item-text">타일</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="/img/gangmaru.jpg" alt="No Image">
+                        <p class="item-text">강마루</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="/img/gangwhamaru.jpg" alt="No Image">
+                        <p class="item-text">강화마루</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="/img/decotile.jpg" alt="No Image">
+                        <p class="item-text">데코타일</p>
+                    </div>
+                </div>
+            </section>
 
             <section class="cont02" data-aos="zoom-out">
                 <div class="inner">
@@ -302,67 +347,67 @@
                             <div class="swiper-slide">
                                 <a href="https://apartmentary.com/portfolio/kqidoqjrdb" target="_blank">
                                     <figure>
-                                        <img src="img/30평아파트1.jpg" alt="">
+                                        <img src="img/apt1.jpg" alt="">
                                     </figure>
                                     <h4>강남 서초더샵포레 아파트</h4>
                                     <p>추억이 깃든 가구에 맞춰 더욱 멋스러운
                                         내추럴 인테리어를 만나보세요</p>
-                                    <span>평당 260만 원 이상</span>
+                                    <span>평당 260만 원 ~</span>
                                 </a>
                             </div>
 
                             <div class="swiper-slide">
                                 <a href="https://apartmentary.com/portfolio/ibrdwrbldq" target="_blank">
                                     <figure>
-                                        <img src="img/30평아파트2.jpg" alt="">
+                                        <img src="img/apt2.jpg" alt="">
                                     </figure>
                                     <h4>성동 트리마제 아파트</h4>
                                     <p>이국적인 분위기의 주방 인테리어를 만나보세요</p>
-                                    <span>평당 260만 원 이상</span>
+                                    <span>평당 260만 원 ~</span>
                                 </a>
                             </div>
 
                             <div class="swiper-slide">
                                 <a href="https://apartmentary.com/portfolio/jildblildw" target="_blank">
                                     <figure>
-                                        <img src="img/30평아파트3.jpg" alt="">
+                                        <img src="img/apt3.jpg" alt="">
                                     </figure>
                                     <h4>위례 중흥S클래스 아파트</h4>
                                     <p>고급스러운 아일랜드 주방 인테리어를 만나보세요</p>
-                                    <span>평당 150만 원 이하</span>
+                                    <span>평당 150만 원 ~</span>
                                 </a>
                             </div>
 
                             <div class="swiper-slide">
                                 <a href="https://apartmentary.com/portfolio/woidifbbdf" target="_blank">
                                     <figure>
-                                        <img src="img/30평아파트4.jpg" alt="">
+                                        <img src="img/apt4.jpg" alt="">
                                     </figure>
                                     <h4>하남 미사 강변 더샵센트럴포레 아파트 </h4>
                                     <p>화사한 화이트우드 인테리어를 만나보세요</p>
-                                    <span>평당 180~200만 원</span>
+                                    <span>평당 180만 원 ~</span>
                                 </a>
                             </div>
 
                             <div class="swiper-slide">
                                 <a href="https://apartmentary.com/portfolio/rfpdrbridj" target="_blank">
                                     <figure>
-                                        <img src="img/30평아파트5.jpg" alt="">
+                                        <img src="img/apt5.jpg" alt="">
                                     </figure>
                                     <h4>관악 제창그로힐 아파트 </h4>
                                     <p>차분한 화이트 인테리어를 만나보세요.</p>
-                                    <span>평당 260만 원 이상</span>
+                                    <span>평당 260만 원 ~</span>
                                 </a>
                             </div>
 
                             <div class="swiper-slide">
                                 <a href="https://apartmentary.com/portfolio/oipdkifidw" target="_blank">
                                     <figure>
-                                        <img src="img/30평아파트6.jpg" alt="">
+                                        <img src="img/apt6.jpg" alt="">
                                     </figure>
                                     <h4>영통 아이파크캐슬 아파트 </h4>
                                     <p>홈카페존이 돋보이는 인테리어를 만나보세요</p>
-                                    <span>평당 180~200만 원</span>
+                                    <span>평당 160만 원 ~</span>
                                 </a>
                             </div>
 
@@ -384,66 +429,66 @@
                             <div class="swiper-slide">
                                 <a href="https://apartmentary.com/portfolio/loqdpjpbdi" target="_blank">
                                     <figure>
-                                        <img src="img/구축아파트1.jpg" alt="1">
+                                        <img src="img/oldapt1.jpg" alt="1">
                                     </figure>
                                     <h4>강남 한보미도맨션 아파트</h4>
                                     <p>화이트&우드 인테리어가 돋보이는 공간을 만나보세요</p>
-                                    <span>평당 260만 원 이상</span>
+                                    <span>평당 260만 원 ~</span>
                                 </a>
                             </div>
 
                             <div class="swiper-slide">
                                 <a href="https://apartmentary.com/portfolio/bjqdfjbfdl" target="_blank">
                                     <figure>
-                                        <img src="img/구축아파트2.jpg" alt="2">
+                                        <img src="img/oldapt2.jpg" alt="2">
                                     </figure>
                                     <h4>일산 위시티블루밍 아파트</h4>
                                     <p>10년 된 아파트를 새 집처럼 화이트 신혼집 <br>인테리어를 만나보세요</p>
-                                    <span>평당 200 ~ 230만 원</span>
+                                    <span>평당 230만 원 ~</span>
                                 </a>
                             </div>
 
                             <div class="swiper-slide">
                                 <a href="https://apartmentary.com/portfolio/oipdkibqdw" target="_blank">
                                     <figure>
-                                        <img src="img/구축아파트3.jpg" alt="3">
+                                        <img src="img/oldapt3.jpg" alt="3">
                                     </figure>
                                     <h4>용산 더 프라임 아파트</h4>
                                     <p>고급스러운 모던 인테리어를 만나보세요</p>
-                                    <span>평당 260만 원 이상</span>
+                                    <span>평당 260만 원  ~</span>
                                 </a>
                             </div>
 
                             <div class="swiper-slide">
                                 <a href="https://apartmentary.com/portfolio/jildblrldw" target="_blank">
                                     <figure>
-                                        <img src="img/구축아파트4.jpg" alt="4">
+                                        <img src="img/oldapt4.jpg" alt="4">
                                     </figure>
                                     <h4>다산 플루리움 아파트</h4>
                                     <p>우드 인테리어로 포인트를 준 50평대 아파트를 만나보세요</p>
-                                    <span>평당 260만 원 이상</span>
+                                    <span>평당 260만 원 ~</span>
                                 </a>
                             </div>
 
                             <div class="swiper-slide">
                                 <a href="https://apartmentary.com/portfolio/woqdjlordj" target="_blank">
                                     <figure>
-                                        <img src="img/구축아파트5.jpg" alt="">
+                                        <img src="img/oldapt5.jpg" alt="">
                                     </figure>
                                     <h4>강남 래미안 그레이튼 2차 아파트</h4>
                                     <p>간살 중문으로 포인트를 준 공간을 만나보세요.</p>
-                                    <span>평당 200 ~ 230만 원</span>
+                                    <span>평당 210만 원 ~</span>
                                 </a>
                             </div>
 
                             <div class="swiper-slide">
                                 <a href="https://apartmentary.com/portfolio/ibrdwrpwdq" target="_blank">
                                     <figure>
-                                        <img src="img/구축아파트6.jpg" alt="">
+                                        <img src="img/oldapt6.jpg" alt="">
                                     </figure>
                                     <h4>노원 상계주공 아파트</h4>
                                     <p>효율적으로 수납공간을 마련한<br>아담한 평수 인테리어를 만나보세요</p>
-                                    <span>평당 230 ~ 260만 원</span>
+                                    <span>평당 260만 원 ~</span>
                                 </a>
                             </div>
 
@@ -457,32 +502,27 @@
             </section><!-- .cont03 end -->
 
             <section class="cont04">
-                <div class="first" data-aos="fade-up" data-aos-duration="1500">
+                    <h4>우리는 이렇게 서비스합니다</h4>
 
-                    <h4>그렇다면</h4>
-                    <p>우리는 "왜" 아파트멘터리를 선택해야할까?</p>
-                    <img src="img/궁금증.png" alt="궁금증">
-                </div><!-- .first end -->
-
-                <div class="second" data-aos="fade-right">
+                <div class="second"">
                     <video autoplay muted loop>
                         <source src="img/brand-banner.mp4">
                     </video>
 
                     <div>
-                        <h4>기분좋은<br>인테리어의 시작과 끝</h4>
-                        <p>첫 상담부터 공사 마무리까지 매뉴얼화된 프로세스와<br>
-                            투명하고 정직한 견적 시스템,<br>
-                            취향을 찾아주는 인테리어 디자인까지<br>
-                            아파트멘터리와 함께한 인테리어라면<br>
-                            설렘만 가득한 경험이 될 거예요.</p>
+                        <h4>체계적이고 효율적인<br>전체 프로세스</h4>
+                        <p>우리 가족이 오랜 시간을 보낼 집이니까,<br>
+                            꼼꼼하고 체계적으로 리모델링 해야합니다.<br>
+                            문서 교환, 매니저 소통, 공사 현황 공유 등<br>
+                            전용 앱으로 모두 가능합니다.<br>
+                            마감과 마무리 A/S까지 함께 하겠습니다.</p>
                     </div>
                 </div><!-- .second end -->
 
                 <div class="third" data-aos="fade-left">
                     <div>
-                        <h4>데이터 기반의<br>
-                            가격정찰제</h4>
+                        <h4 style="text-align: right;">데이터 기반의<br>
+                            가격 정찰제</h4>
                         <p>인테리어 비용의 애매한 기준,<br>
                             아파트멘터리가 정의할게요.<br>
                             동일한 평형이라면 동일한 기준 적용.<br>
